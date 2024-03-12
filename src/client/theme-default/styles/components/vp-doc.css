@@ -16,7 +16,7 @@
 .vp-doc h1 {
   letter-spacing: -0.02em;
   line-height: 40px;
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .vp-doc h2 {
@@ -68,13 +68,13 @@
   opacity: 1;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .vp-doc h1 {
     letter-spacing: -0.02em;
     line-height: 40px;
     font-size: 32px;
   }
-}
+} */
 
 .vp-doc h2 .header-anchor {
   top: 24px;
@@ -269,7 +269,7 @@
 .vp-doc div[class*='language-'],
 .vp-block {
   position: relative;
-  margin: 16px -24px;
+  /* margin: 16px -24px; */
   background-color: var(--vp-code-block-bg);
   overflow-x: auto;
   transition: background-color 0.5s;

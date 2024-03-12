@@ -80,7 +80,7 @@ const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1152px;
+  max-width: 810px;
 }
 
 @media (min-width: 960px) {

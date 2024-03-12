@@ -31,7 +31,7 @@ defineEmits<{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
+  /* width: 48px; */
   height: var(--vp-nav-height);
 }
 

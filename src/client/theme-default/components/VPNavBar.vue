@@ -94,12 +94,18 @@ watchPostEffect(() => {
 }
 
 .wrapper {
-  padding: 0 8px 0 24px;
+  padding: 0 24px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px){
   .wrapper {
-    padding: 0 32px;
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 960px) {
+  .wrapper {
+    padding: 0 64px;
   }
 }
 
@@ -112,10 +118,13 @@ watchPostEffect(() => {
 .container {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: calc(var(--vp-layout-max-width) - 64px);
   height: var(--vp-nav-height);
   pointer-events: none;
+}
+
+.VPNavBar:not(.has-sidebar) .container {
+  margin: 0 auto;
+  max-width: 810px;
 }
 
 .container > .title,

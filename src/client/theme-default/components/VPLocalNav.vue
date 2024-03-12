@@ -89,10 +89,17 @@ const classes = computed(() => {
   padding-top: var(--vp-layout-top-height, 0px);
   width: 100%;
   background-color: var(--vp-local-nav-bg-color);
+  padding: 0 24px;
 }
 
 .VPLocalNav.fixed {
   position: fixed;
+}
+
+@media (min-width: 640px) {
+  .VPLocalNav {
+    padding: 0 48px;
+  }
 }
 
 @media (min-width: 960px) {
@@ -101,7 +108,7 @@ const classes = computed(() => {
   }
 
   .VPLocalNav.has-sidebar {
-    padding-left: var(--vp-sidebar-width);
+    padding-left: calc(var(--vp-sidebar-width) + 32px);
   }
 
   .VPLocalNav.empty {
@@ -125,12 +132,19 @@ const classes = computed(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  /* padding: 0 32px; */
+}
+
+.VPLocalNav:not(.has-sidebar) .container{
+  max-width: 810px;
 }
 
 .menu {
   display: flex;
   align-items: center;
-  padding: 12px 24px 11px;
+  /* padding: 12px 24px 11px; */
   line-height: 24px;
   font-size: 12px;
   font-weight: 500;
@@ -143,11 +157,11 @@ const classes = computed(() => {
   transition: color 0.25s;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .menu {
     padding: 0 32px;
   }
-}
+} */
 
 @media (min-width: 960px) {
   .menu {

@@ -39,7 +39,7 @@ const pageName = computed(() =>
         </div>
       </div>
 
-      <div class="content">
+      <div class="content" :class="{'right-content': leftAside}">
         <div class="content-container">
           <slot name="doc-before" />
           <main class="main">
@@ -68,10 +68,16 @@ const pageName = computed(() =>
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .VPDoc {
-    padding: 48px 32px 128px;
+    padding: 48px 48px 128px;
   }
+}
+
+.VPDoc:not(.has-sidebar) .container {
+  display: flex;
+  justify-content: center;
+  max-width: 810px;
 }
 
 @media (min-width: 960px) {
@@ -79,15 +85,9 @@ const pageName = computed(() =>
     padding: 48px 32px 0;
   }
 
-  .VPDoc:not(.has-sidebar) .container {
-    display: flex;
-    justify-content: center;
-    max-width: 992px;
-  }
-
-  .VPDoc:not(.has-sidebar) .content {
+  /* .VPDoc:not(.has-sidebar) .content {
     max-width: 752px;
-  }
+  } */
 }
 
 @media (min-width: 1280px) {
@@ -101,7 +101,7 @@ const pageName = computed(() =>
   }
 }
 
-@media (min-width: 1440px) {
+/* @media (min-width: 1440px) {
   .VPDoc:not(.has-sidebar) .content {
     max-width: 784px;
   }
@@ -109,7 +109,7 @@ const pageName = computed(() =>
   .VPDoc:not(.has-sidebar) .container {
     max-width: 1104px;
   }
-}
+} */
 
 .container {
   margin: 0 auto;
@@ -169,17 +169,22 @@ const pageName = computed(() =>
   width: 100%;
 }
 
-@media (min-width: 960px) {
+.right-content {
+  order: 2;
+}
+
+/* @media (min-width: 960px) {
   .content {
     padding: 0 32px 128px;
   }
-}
+} */
 
 @media (min-width: 1280px) {
   .content {
-    order: 1;
-    margin: 0;
-    min-width: 640px;
+    padding: 0 32px 128px 0;
+  }
+  .right-content {
+    padding: 0 0 128px 32px;
   }
 }
 
@@ -187,7 +192,7 @@ const pageName = computed(() =>
   margin: 0 auto;
 }
 
-.VPDoc.has-aside .content-container {
+/* .VPDoc.has-aside .content-container {
   max-width: 688px;
-}
+} */
 </style>

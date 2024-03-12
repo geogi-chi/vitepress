@@ -79,7 +79,7 @@ const grid = computed(() => {
 
 .container {
   margin: 0 auto;
-  max-width: 1152px;
+  max-width: 810px;
 }
 
 .items {
@@ -97,14 +97,14 @@ const grid = computed(() => {
   .item.grid-2,
   .item.grid-4,
   .item.grid-6 {
-    width: calc(100% / 2);
+    width: 100%;
   }
 }
 
 @media (min-width: 768px) {
   .item.grid-2,
   .item.grid-4 {
-    width: calc(100% / 2);
+    width: 100%;
   }
 
   .item.grid-3,
@@ -115,7 +115,7 @@ const grid = computed(() => {
 
 @media (min-width: 960px) {
   .item.grid-4 {
-    width: calc(100% / 4);
+    width: 100%;
   }
 }
 </style>

@@ -83,18 +83,18 @@ function scrollToTop() {
 
 <style scoped>
 .VPLocalNavOutlineDropdown {
-  padding: 12px 20px 11px;
+  padding: 12px 0 11px;
 }
 
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
   .VPLocalNavOutlineDropdown {
     padding: 12px 36px 11px;
   }
-}
+} */
 
 .VPLocalNavOutlineDropdown button {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   color: var(--vp-c-text-2);
@@ -111,11 +111,11 @@ function scrollToTop() {
   color: var(--vp-c-text-1);
 }
 
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
   .VPLocalNavOutlineDropdown button {
     font-size: 14px;
   }
-}
+} */
 
 .icon {
   display: inline-block;
@@ -133,8 +133,8 @@ function scrollToTop() {
 .items {
   position: absolute;
   top: 40px;
-  right: 16px;
-  left: 16px;
+  right: 48px;
+  /* left: 16px; */
   display: grid;
   gap: 1px;
   border: 1px solid var(--vp-c-border);
@@ -148,8 +148,7 @@ function scrollToTop() {
 @media (min-width: 960px) {
   .items {
     right: auto;
-    left: calc(var(--vp-sidebar-width) + 32px);
-    width: 320px;
+    left: auto;
   }
 }
 
