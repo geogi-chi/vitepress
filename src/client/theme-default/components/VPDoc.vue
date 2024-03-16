@@ -179,14 +179,14 @@ const pageName = computed(() =>
   }
 } */
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .content {
     padding: 0 32px 128px 0;
   }
   .right-content {
     padding: 0 0 128px 32px;
   }
-}
+} */
 
 .content-container {
   margin: 0 auto;

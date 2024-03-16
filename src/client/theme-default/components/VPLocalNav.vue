@@ -18,7 +18,7 @@ defineEmits<{
 }>()
 
 const { theme, frontmatter } = useData()
-const { hasSidebar } = useSidebar()
+const { hasSidebar, hasAside } = useSidebar()
 const { headers } = useLocalNav()
 const { y } = useWindowScroll()
 
@@ -48,6 +48,7 @@ const classes = computed(() => {
   return {
     VPLocalNav: true,
     'has-sidebar': hasSidebar.value,
+    'has-aside': hasAside.value,
     empty: empty.value,
     fixed: emptyAndNoSidebar.value
   }
@@ -90,6 +91,10 @@ const classes = computed(() => {
   width: 100%;
   background-color: var(--vp-local-nav-bg-color);
   padding: 0 24px;
+}
+
+.VPLocalNav:not(.has-aside) {
+  display: none;
 }
 
 .VPLocalNav.fixed {
