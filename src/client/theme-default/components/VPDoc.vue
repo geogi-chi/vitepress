@@ -80,15 +80,15 @@ const pageName = computed(() =>
   max-width: 810px;
 }
 
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
   .VPDoc {
     padding: 48px 32px 0;
   }
 
-  /* .VPDoc:not(.has-sidebar) .content {
+  .VPDoc:not(.has-sidebar) .content {
     max-width: 752px;
-  } */
-}
+  }
+} */
 
 @media (min-width: 1280px) {
   .VPDoc .container {
