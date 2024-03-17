@@ -176,7 +176,7 @@ watchPostEffect(() => {
   .VPNavBar.has-sidebar .content {
     position: relative;
     z-index: 1;
-    padding-right: 32px;
+    padding-right: 48px;
     padding-left: var(--vp-sidebar-width);
   }
 }
