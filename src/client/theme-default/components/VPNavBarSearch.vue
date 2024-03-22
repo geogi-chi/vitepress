@@ -165,7 +165,7 @@ const provider = __ALGOLIA__ ? 'algolia' : __VP_LOCAL_SEARCH__ ? 'local' : ''
 @media (min-width: 768px) {
   .VPNavBarSearch {
     flex-grow: 1;
-    padding-left: 32px;
+    padding-left: 48px;
   }
 }
 

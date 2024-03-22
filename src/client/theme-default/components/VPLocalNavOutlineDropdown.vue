@@ -3,9 +3,9 @@ import { onClickOutside, onKeyStroke } from '@vueuse/core'
 import { onContentUpdated } from 'vitepress'
 import { nextTick, ref } from 'vue'
 import { useData } from '../composables/data'
+import { useSidebar } from '../composables/sidebar'
 import { resolveTitle, type MenuItem } from '../composables/outline'
 import VPDocOutlineItem from './VPDocOutlineItem.vue'
-import VPIconChevronRight from './icons/VPIconChevronRight.vue'
 
 const props = defineProps<{
   headers: MenuItem[]
@@ -13,6 +13,7 @@ const props = defineProps<{
 }>()
 
 const { theme } = useData()
+const { hasSidebar } = useSidebar()
 const open = ref(false)
 const vh = ref(0)
 const main = ref<HTMLDivElement>()
@@ -61,13 +62,13 @@ function scrollToTop() {
   >
     <button @click="toggle" :class="{ open }" v-if="headers.length > 0">
       {{ resolveTitle(theme) }}
-      <VPIconChevronRight class="icon" />
+      <span class="vpi-chevron-right icon" />
     </button>
     <button @click="scrollToTop" v-else>
       {{ theme.returnToTopLabel || 'Return to top' }}
     </button>
     <Transition name="flyout">
-      <div v-if="open" ref="items" class="items" @click="onItemClick">
+      <div v-if="open" ref="items" class="items" :class="{'has-sidebar': hasSidebar}" @click="onItemClick">
         <div class="header">
           <a class="top-link" href="#" @click="scrollToTop">
             {{ theme.returnToTopLabel || 'Return to top' }}
@@ -111,20 +112,24 @@ function scrollToTop() {
   color: var(--vp-c-text-1);
 }
 
-/* @media (min-width: 960px) {
-  .VPLocalNavOutlineDropdown button {
-    font-size: 14px;
-  }
-} */
-
 .icon {
   display: inline-block;
   vertical-align: middle;
   margin-left: 2px;
-  width: 14px;
-  height: 14px;
-  fill: currentColor;
+  font-size: 14px;
+  transform: rotate(0deg);
+  transition: transform 0.25s;
 }
+
+/* @media (min-width: 960px) {
+  .VPLocalNavOutlineDropdown button {
+    font-size: 14px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+} */
 
 .open > .icon {
   transform: rotate(90deg);
@@ -133,8 +138,8 @@ function scrollToTop() {
 .items {
   position: absolute;
   top: 40px;
-  right: 48px;
-  /* left: 16px; */
+  right: auto;
+  left: auto;
   display: grid;
   gap: 1px;
   border: 1px solid var(--vp-c-border);
@@ -145,10 +150,9 @@ function scrollToTop() {
   box-shadow: var(--vp-shadow-3);
 }
 
-@media (min-width: 960px) {
-  .items {
-    right: auto;
-    left: auto;
+@media (max-width: 960px) {
+  .items.has-sidebar {
+    right: 48px;
   }
 }
 
