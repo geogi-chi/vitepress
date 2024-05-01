@@ -5,6 +5,7 @@ import VPLink from './VPLink.vue'
 
 defineProps<{
   icon?: DefaultTheme.FeatureIcon
+  date: string
   title: string
   details?: string
   link?: string
@@ -40,6 +41,7 @@ defineProps<{
         :width="icon.width || 48"
       />
       <div v-else-if="icon" class="icon" v-html="icon"></div>
+      <h2 class="date" v-html="date"></h2>
       <h2 class="title" v-html="title"></h2>
       <p v-if="details" class="details" v-html="details"></p>
 
@@ -90,7 +92,14 @@ defineProps<{
   transition: background-color 0.25s;
 }
 
+.date {
+  line-height: 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .title {
+  padding-top: 8px;
   line-height: 24px;
   font-size: 16px;
   font-weight: 600;

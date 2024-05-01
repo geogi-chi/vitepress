@@ -5,6 +5,7 @@ import VPFeature from './VPFeature.vue'
 
 export interface Feature {
   icon?: DefaultTheme.FeatureIcon
+  date: string
   title: string
   details: string
   link?: string
@@ -46,6 +47,7 @@ const grid = computed(() => {
         >
           <VPFeature
             :icon="feature.icon"
+            :date="feature.date"
             :title="feature.title"
             :details="feature.details"
             :link="feature.link"
@@ -109,7 +111,7 @@ const grid = computed(() => {
 
   .item.grid-3,
   .item.grid-6 {
-    width: calc(100% / 3);
+    width: 100%;
   }
 }
 
